@@ -76,4 +76,6 @@ router.get("/:idVideogame", async (req, res) => {
     }
 });
 
+router.post("/");
+
 module.exports = router;
