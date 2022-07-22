@@ -7,7 +7,7 @@ router.use(express.json());
 
 const { API_KEY } = process.env;
 
-let url = `https://api.rawg.io/api/games?key=${API_KEY}`;
+let url = `https://api.rawg.io/api/games`;
 
 router.get("/", async (req, res) => {
     if (!req.query) {
@@ -31,7 +31,9 @@ router.get("/", async (req, res) => {
         }
     } else {
         const { name } = req.query;
-        const response = await axios.get(url.concat(`&search=${name}`));
+        const response = await axios.get(
+            url.concat(`?key=${API_KEY}&search=${name}`)
+        );
         const apiVideogame = response.data.results;
         const resVideogame = [];
         apiVideogame.map((game) => {
@@ -56,7 +58,7 @@ router.get("/", async (req, res) => {
 router.get("/:idVideogame", async (req, res) => {
     const { idVideogame } = req.params;
     const response = await axios.get(
-        `https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`
+        url.concat(`/${idVideogame}?key=${API_KEY}`)
     );
     const apiVideogame = response.data;
     const resVideogame = {
