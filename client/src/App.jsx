@@ -1,9 +1,9 @@
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import { Land } from "./land";
-import { Home } from "./home";
-import { NavBar } from "./navBar";
-import { GameDetail } from "./gameDetail";
+import { Land } from "./components/land";
+import { Home } from "./components/home";
+import { NavBar } from "./components/navBar";
+import { GameDetail } from "./components/gameDetail";
 function App(props) {
     return (
         <div>
