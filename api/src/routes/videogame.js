@@ -13,16 +13,18 @@ router.get("/", async (req, res) => {
     if (!req.query) {
         try {
             const response = await axios.get(url);
-            const apiVideogame = response.data.results;
-            const resVideogame = [];
-            apiVideogame.map((game) => {
+            const apiVideogames = response.data.results;
+            const resVideogames = [];
+            const bdVideogames = [await Videogame.findAll()];
+            apiVideogames.map((game) => {
                 let obj = {
                     id: game.id,
                     name: game.name,
                     background_image: game.background_image,
                     genres: game.genres,
                 };
-                resVideogame.push(obj);
+                resVideogames.push(obj);
+                resVideogames.concat(bdVideogames);
             });
 
             res.json(resVideogame);
