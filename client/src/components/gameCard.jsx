@@ -5,7 +5,11 @@ export default function GameCard(props) {
     return (
         <Link to={`/${props.id}`}>
             <div>
-                <img src={props.background_image} className={styles.imagen} />
+                <img
+                    src={props.background_image}
+                    className={styles.imagen}
+                    alt={props.name}
+                />
                 <span>{props.name}</span>
             </div>
         </Link>

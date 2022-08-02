@@ -14,8 +14,8 @@ router.get("/", async (req, res) => {
     if (!name) {
         try {
             const resVideogames = [];
+            let urlFor = `https://api.rawg.io/api/games?key=${API_KEY}`;
             for (let i = 0; i < 5; i++) {
-                let urlFor = `https://api.rawg.io/api/games?key=${API_KEY}`;
                 const response = await axios.get(urlFor);
                 const apiVideogames = response.data.results;
 
@@ -27,8 +27,8 @@ router.get("/", async (req, res) => {
                         genres: game.genres,
                     };
                     resVideogames.push(obj);
-                    urlFor = response.data.next;
                 });
+                urlFor = response.data.next;
             }
             const dbVideogames = await Videogame.findAll();
             resVideogames.concat(dbVideogames);
