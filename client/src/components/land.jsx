@@ -6,7 +6,9 @@ export function Land() {
     return (
         <div className={styles.section}>
             <h1 className={styles.sectionLink}>
-                <Link to="/home">Welcome to the Game Oracle</Link>
+                <Link to="/home" className={styles.link}>
+                    Enter to The Game Oracle
+                </Link>
             </h1>
 
             <div className={styles.videoContainer}>
