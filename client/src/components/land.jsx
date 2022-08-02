@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
+import styles from "../styles/land.module.css";
+import video from "../styles/video.mp4";
 
 export function Land() {
     return (
-        <div>
-            <Link to="/home">
-                <h1>The Game Oracle</h1>
-            </Link>
-            <video autoPlay loop muted>
-                <source src="../../public/video.mp4" type="video/mp4" />
-            </video>
+        <div className={styles.section}>
+            <h1 className={styles.sectionLink}>
+                <Link to="/home">Welcome to the Game Oracle</Link>
+            </h1>
+
+            <div className={styles.videoContainer}>
+                <div className={styles.videoOverlay}></div>
+                <video autoPlay loop muted>
+                    <source src={video} type="video/mp4" />
+                </video>
+            </div>
         </div>
     );
 }

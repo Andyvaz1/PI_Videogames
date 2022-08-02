@@ -73,7 +73,7 @@ router.get("/:idVideogame", async (req, res) => {
             name: apiVideogame.name,
             background_image: apiVideogame.background_image,
             genres: apiVideogame.genres,
-            description: apiVideogame.description,
+            description: apiVideogame.description_raw,
             released: apiVideogame.released,
             rating: apiVideogame.rating,
             platforms: apiVideogame.platforms,

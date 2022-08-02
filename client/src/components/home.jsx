@@ -15,15 +15,19 @@ export function Home() {
 
     return (
         <div className={styles.grid}>
-            {allGames?.map((game) => (
-                <div key={game.id}>
-                    <GameCard
-                        background_image={game.background_image}
-                        name={game.name}
-                        id={game.id}
-                    />
-                </div>
-            ))}
+            {allGames.length > 0 ? (
+                allGames?.map((game) => (
+                    <div key={game.id}>
+                        <GameCard
+                            background_image={game.background_image}
+                            name={game.name}
+                            id={game.id}
+                        />
+                    </div>
+                ))
+            ) : (
+                <div className={styles.grid}>LOADING</div>
+            )}
         </div>
     );
 }
