@@ -5,7 +5,7 @@ const initialState = {
     gameDetail: {},
 };
 
-const rootReducer = (state = initialState, action) => {
+export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ALL_GAMES:
             return {
@@ -17,5 +17,10 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 gameDetail: action.payload,
             };
+        default: {
+            return {
+                ...state,
+            };
+        }
     }
 };

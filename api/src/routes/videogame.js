@@ -10,29 +10,33 @@ const { API_KEY } = process.env;
 let url = `https://api.rawg.io/api/games`;
 
 router.get("/", async (req, res) => {
-    if (!req.query) {
+    const { name } = req.query;
+    if (!name) {
         try {
-            const response = await axios.get(url);
-            const apiVideogames = response.data.results;
             const resVideogames = [];
-            const bdVideogames = [await Videogame.findAll()];
-            apiVideogames.map((game) => {
-                let obj = {
-                    id: game.id,
-                    name: game.name,
-                    background_image: game.background_image,
-                    genres: game.genres,
-                };
-                resVideogames.push(obj);
-                resVideogames.concat(bdVideogames);
-            });
+            for (let i = 0; i < 5; i++) {
+                let urlFor = `https://api.rawg.io/api/games?key=${API_KEY}`;
+                const response = await axios.get(urlFor);
+                const apiVideogames = response.data.results;
 
-            res.json(resVideogame);
+                apiVideogames.map((game) => {
+                    let obj = {
+                        id: game.id,
+                        name: game.name,
+                        background_image: game.background_image,
+                        genres: game.genres,
+                    };
+                    resVideogames.push(obj);
+                    urlFor = response.data.next;
+                });
+            }
+            const dbVideogames = await Videogame.findAll();
+            resVideogames.concat(dbVideogames);
+            res.json(resVideogames);
         } catch (error) {
             res.send(error);
         }
     } else {
-        const { name } = req.query;
         try {
             const response = await axios.get(
                 url.concat(`?key=${API_KEY}&search=${name}`)
