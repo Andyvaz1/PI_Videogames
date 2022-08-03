@@ -12,7 +12,24 @@
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 25x;
+}
+.span {
+    font-size: 3ex;
+}
 
+.img {
+    color: #edf0f1;
+    background: -webkit-linear-gradient(#1973bc, #7319bc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.linkLogo {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 25x;
+    color: #edf0f1;
+    text-decoration: none;
     background: -webkit-linear-gradient(#1973bc, #7319bc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -27,6 +44,8 @@
     margin: 0;
     padding: 0;
     background-color: #24252a;
+    border-bottom: #7319bc;
+    border-bottom-style: groove;
 }
 
 .offseet {
@@ -104,11 +123,11 @@
     --hover: #ffdc7f;
 }
 .raise2 {
-    --color: #1973bc;
-    --hover: #7319bc;
+    --color: #6c32c7;
+    --hover: #1973bc;
 }
 .raise {
-    --color: #1973bc;
+    --color: #6c32c7;
     --hover: #19bc70;
 }
 .up {

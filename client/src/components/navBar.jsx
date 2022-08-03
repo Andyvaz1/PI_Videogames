@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/navBar.module.css";
 import homeIcon from "../styles/homeIcon2.png";
+import oracleLogo from "../styles/oraclename.png";
+import oracleLogo2 from "../styles/oracleNameVioleta.png";
+import oracleLogo3 from "../styles/go3.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllGames } from "../redux/actions";
 export function NavBar() {
@@ -20,7 +23,12 @@ export function NavBar() {
             </div>
             <div>
                 <Link to="/home" className={styles.link}>
-                    <h1 className={styles.h1}>The Game Oracle</h1>
+                    <h1 className={styles.h1}>
+                        <Link to="/home" className={styles.linkLogo}>
+                            <img src={oracleLogo3} />
+                        </Link>
+                        <span className={styles.span}>🔮</span>
+                    </h1>
                 </Link>
             </div>
             <div>

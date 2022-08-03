@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/land.module.css";
 import video from "../styles/video.mp4";
+import logo from "../styles/goLand.png";
 
 export function Land() {
     return (
         <div className={styles.section}>
             <h1 className={styles.sectionLink}>
                 <Link to="/home" className={styles.link}>
-                    Enter to The Game Oracle
+                    <span>🔮</span>
+                    <img src={logo} className={styles.img} />
+                    <span>🔮</span>
                 </Link>
             </h1>
 
