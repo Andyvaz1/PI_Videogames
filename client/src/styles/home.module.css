@@ -4,5 +4,8 @@
     gap: 40px;
     padding: 40px;
     justify-content: center;
-    background: -webkit-linear-gradient(#1973bc, #7319bc);
+}
+.fondo {
+    background-image: url("./fondo.jpg");
+    background-size: 100%;
 }
