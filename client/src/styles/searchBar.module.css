@@ -1,6 +1,31 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 30px 10%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252ab0;
+
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+        rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+        rgba(0, 0, 0, 0.2) 0px -3px 0.5px inset;
+
+    border-radius: var(0.7rem);
+}
+
 form {
-    position: relative;
-    width: 30rem;
-    background: var(--color-brand);
-    border-radius: var(--rad);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    border-radius: var(0.7rem);
+}
+
+button:hover {
+    cursor: pointer;
 }

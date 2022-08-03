@@ -21,7 +21,7 @@ export function Home() {
     }, []);
 
     return (
-        <div className={styles.fondo2}>
+        <div className={styles.fondo1}>
             <SearchBar />
             <div className={styles.grid}>
                 {allGames.length > 0 ? (

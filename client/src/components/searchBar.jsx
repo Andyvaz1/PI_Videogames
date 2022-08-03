@@ -20,7 +20,7 @@ export function SearchBar() {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <form className="form-container" onSubmit={(e) => handleSubmit(e)}>
                 <div>
                     <input

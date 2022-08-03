@@ -1,28 +1,36 @@
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 345px);
-    gap: 40px;
-    padding: 50px;
+    grid-template-columns: repeat(auto-fill, 225px);
+    gap: 150px;
+    padding: 25px;
     justify-content: center;
-}
-
-.fondo2 {
-    background: #6c32c7;
+    margin-right: 100px;
 }
 
 .fondo1 {
+    background: #6c32c7;
+}
+
+.fondo2 {
     background-image: url("./imagenes/fondo3.jpg");
+    background-size: cover;
 }
 .fondo3 {
     background-image: url("./imagenes/fondo4.jpg");
+    background-size: cover;
 }
 .fondo4 {
     background-image: url("./imagenes/fondo5.jpg");
+    background-size: cover;
 }
 .fondo5 {
     background-image: url("./imagenes/fondo6.jpg");
+    background-size: cover;
 }
-
+.fondo6 {
+    background-image: url("./imagenes/fondo7.jpg");
+    background-size: cover;
+}
 .loading {
     width: 100vw;
     height: 100vh;
