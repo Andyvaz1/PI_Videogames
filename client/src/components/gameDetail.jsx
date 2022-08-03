@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getGameDetail } from "../redux/actions";
 import { useParams } from "react-router-dom";
+import styles from "../styles/gameDetail.module.css";
 
 export function GameDetail(props) {
     const dispatch = useDispatch();
@@ -12,9 +13,9 @@ export function GameDetail(props) {
         dispatch(getGameDetail(id));
     }, []);
     return (
-        <div>
+        <div className={styles.fondo}>
             <h1>{gameDetail.name}</h1>
-            <img src={gameDetail.background_image} />
+            <img src={gameDetail.background_image} className={styles.img} />
 
             <p>Description: {gameDetail.description}</p>
             <p>Release Date: {gameDetail.released}</p>

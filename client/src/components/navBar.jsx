@@ -12,20 +12,20 @@ export function NavBar() {
     return (
         <header className={styles.header}>
             <div>
-                <button
-                    className={styles.raise2}
-                    onClick={dispatch(getAllGames())}
-                >
-                    <Link to="/home" className={styles.link}>
-                        <img src={homeIcon} />
-                    </Link>
-                </button>
+                <Link to="/home" className={styles.link}>
+                    <button
+                        className={styles.raise2}
+                        onClick={dispatch(getAllGames())}
+                    >
+                        <img src={homeIcon} alt="Home" />
+                    </button>
+                </Link>
             </div>
             <div>
                 <Link to="/home" className={styles.link}>
                     <h1 className={styles.h1}>
                         <Link to="/home" className={styles.linkLogo}>
-                            <img src={oracleLogo3} />
+                            <img src={oracleLogo3} alt="The Game Oracle" />
                         </Link>
                         <span className={styles.span}>🔮</span>
                     </h1>

@@ -5,13 +5,22 @@
     padding: 50px;
     justify-content: center;
 }
-.fondo {
-    background-image: url("./2e3166c4d19789eb9e8193210791d5d7.png");
-    background-size: auto;
-}
 
 .fondo2 {
-    background: linear-gradient(rgb(60, 18, 128), transparent 99%);
+    background: #6c32c7;
+}
+
+.fondo1 {
+    background-image: url("./imagenes/fondo3.jpg");
+}
+.fondo3 {
+    background-image: url("./imagenes/fondo4.jpg");
+}
+.fondo4 {
+    background-image: url("./imagenes/fondo5.jpg");
+}
+.fondo5 {
+    background-image: url("./imagenes/fondo6.jpg");
 }
 
 .loading {
