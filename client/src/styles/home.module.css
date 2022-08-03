@@ -10,6 +10,10 @@
     background-size: auto;
 }
 
+.fondo2 {
+    background: linear-gradient(rgb(60, 18, 128), transparent 99%);
+}
+
 .loading {
     width: 100vw;
     height: 100vh;
