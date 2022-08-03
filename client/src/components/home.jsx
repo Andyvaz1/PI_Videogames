@@ -1,5 +1,6 @@
 import { getAllGames } from "../redux/actions";
 import GameCard from "./gameCard";
+import { SearchBar } from "./searchBar";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import styles from "../styles/home.module.css";
@@ -21,6 +22,7 @@ export function Home() {
 
     return (
         <div className={styles.fondo}>
+            <SearchBar />
             <div className={styles.grid}>
                 {allGames.length > 0 ? (
                     allGames
@@ -34,11 +36,13 @@ export function Home() {
                                     background_image={game.background_image}
                                     name={game.name}
                                     id={game.id}
+                                    rating={game.rating}
+                                    genres={game.genres}
                                 />
                             </div>
                         ))
                 ) : (
-                    <div className={styles.grid}>LOADING</div>
+                    <div className={styles.loading}>LOADING</div>
                 )}
                 <Pagination />
             </div>

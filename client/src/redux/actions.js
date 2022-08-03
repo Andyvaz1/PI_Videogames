@@ -24,3 +24,12 @@ export const getGameDetail = (id) => {
             .catch((error) => console.log(error));
     };
 };
+
+export const searchGames = (name) => {
+    return async function (dispatch) {
+        return fetch(`http://localhost:3001/videogame/?name=${name}`)
+            .then((response) => response.json())
+            .then((json) => dispatch({ type: GET_ALL_GAMES, payload: json }))
+            .catch(() => console.log("Game not found."));
+    };
+};

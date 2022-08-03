@@ -2,10 +2,16 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, 345px);
     gap: 40px;
-    padding: 40px;
+    padding: 50px;
     justify-content: center;
 }
 .fondo {
-    background-image: url("./fondo.jpg");
-    background-size: 100%;
+    background-image: url("./2e3166c4d19789eb9e8193210791d5d7.png");
+    background-size: auto;
+}
+
+.loading {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
 }

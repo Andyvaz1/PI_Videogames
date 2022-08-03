@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/navBar.module.css";
 import homeIcon from "../styles/homeIcon2.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllGames } from "../redux/actions";
 export function NavBar() {
+    const dispatch = useDispatch();
+
     return (
         <header className={styles.header}>
             <div>
-                <button className={styles.raise2}>
+                <button
+                    className={styles.raise2}
+                    onClick={dispatch(getAllGames())}
+                >
                     <Link to="/home" className={styles.link}>
                         <img src={homeIcon} />
                     </Link>

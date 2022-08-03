@@ -25,6 +25,8 @@ router.get("/", async (req, res) => {
                         name: game.name,
                         background_image: game.background_image,
                         genres: game.genres,
+                        rating: game.rating,
+                        genres: game.genres,
                     };
                     resVideogames.push(obj);
                 });

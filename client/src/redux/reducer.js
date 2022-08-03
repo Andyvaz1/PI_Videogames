@@ -17,6 +17,7 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 gameDetail: action.payload,
             };
+
         default: {
             return {
                 ...state,
