@@ -14,16 +14,25 @@ export function Home() {
     /////// Estado local para el paginado /////////////////
 
     const [perPage, setPerPage] = useState(15);
-    let max = allGames.lengthg / perPage;
 
     //// Use effect para que traiga a estado global los juegos /////
     useEffect(() => {
         dispatch(getAllGames());
     }, []);
 
+    useEffect(() => {
+        dispatch(setPage(1));
+    }, [allGames]);
+
+    console.log(allGames.length);
+    let max = Math.round(allGames.length / perPage);
+
+    console.log(max);
+
     return (
         <div className={styles.fondo1}>
             <SearchBar />
+            <Pagination maximo={max} />
             <div className={styles.grid}>
                 {allGames.length > 0 ? (
                     allGames
@@ -47,9 +56,7 @@ export function Home() {
                 )}
                 <br />
             </div>
+            <Pagination maximo={max} />
         </div>
     );
 }
-/// Crear Store
-/// Crear actions
-/// crear reducer

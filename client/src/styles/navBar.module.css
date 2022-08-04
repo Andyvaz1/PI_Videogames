@@ -30,9 +30,6 @@
     font-size: 25x;
     color: #edf0f1;
     text-decoration: none;
-    background: -webkit-linear-gradient(#1973bc, #7319bc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 .header {

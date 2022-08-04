@@ -10,6 +10,7 @@ export const CREATE_GAME = "CREATE_GAME";
 export const SET_PAGE = "SET_PAGE";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const PREV_PAGE = "PREV_PAGE";
+export const GET_ALL_GENRES = "GET_ALL_GENRES";
 
 /////Action Creators /////
 
@@ -37,6 +38,15 @@ export const searchGames = (name) => {
             .then((response) => response.json())
             .then((json) => dispatch({ type: GET_ALL_GAMES, payload: json }))
             .catch(() => console.log("Game not found."));
+    };
+};
+
+export const getAllGenres = () => {
+    return async function (dispatch) {
+        return fetch(`http://localhost:3001/genre`)
+            .then((response) => response.json())
+            .then((json) => dispatch({ type: GET_ALL_GENRES, payload: json }))
+            .catch(() => console.log("Genre not found."));
     };
 };
 

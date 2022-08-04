@@ -19,16 +19,15 @@ export function NavBar() {
                     </button>
                 </Link>
             </div>
-            <div>
-                <Link to="/home" className={styles.link}>
+            <Link to="/home" className={styles.linkLogo}>
+                <div>
                     <h1 className={styles.h1}>
-                        <Link to="/home" className={styles.linkLogo}>
-                            <img src={oracleLogo3} alt="The Game Oracle" />
-                        </Link>
+                        <img src={oracleLogo3} alt="The Game Oracle" />
+
                         <span className={styles.span}>🔮</span>
                     </h1>
-                </Link>
-            </div>
+                </div>
+            </Link>
             <div>
                 <button className={styles.raise}>
                     <Link to="/creategame" className={styles.link}>

@@ -1,13 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-import { searchGames } from "../redux/actions";
+import { useState, useEffect } from "react";
+import { searchGames, getAllGenres } from "../redux/actions";
 import { Link } from "react-router-dom";
 import styles from "../styles/searchBar.module.css";
+import searchIcon from "../styles/imagenes/searchIcon.png";
 
 export function SearchBar() {
     const dispatch = useDispatch();
-    const { allGames } = useSelector((state) => state);
+    const { allGenres } = useSelector((state) => state);
 
+    useEffect(() => {
+        dispatch(getAllGenres());
+    }, []);
     const [content, setContent] = useState("");
 
     function handleChange(e) {
@@ -18,6 +22,8 @@ export function SearchBar() {
         e.preventDefault();
         dispatch(searchGames(content));
     }
+
+    console.log(allGenres);
 
     return (
         <div className={styles.container}>
@@ -30,10 +36,22 @@ export function SearchBar() {
                         value={content}
                         placeholder="Search..."
                         onChange={(e) => handleChange(e)}
+                        className={styles.inputSearch}
                     />
                 </div>
 
-                <button type="submit">Go</button>
+                <button type="submit" className={styles.buttonSearch}>
+                    <img src={searchIcon} className={styles.iconSearch} />
+                </button>
+            </form>
+            {/* FILTROS */}
+            <form>
+                <label for="genre">Genre:</label>
+                <select id="genre" name="genres">
+                    {allGenres.map((e) => {
+                        <option value={e.name}>{e.name}</option>;
+                    })}
+                </select>
             </form>
         </div>
     );

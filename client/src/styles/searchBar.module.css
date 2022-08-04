@@ -6,7 +6,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #24252ab0;
+    background-color: #2f313ab0;
 
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
         rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
@@ -28,4 +28,24 @@ form {
 
 button:hover {
     cursor: pointer;
+    background-color: #6c32c7;
+}
+
+.buttonSearch {
+    margin-left: 4px;
+    padding: 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.iconSearch {
+    height: 20px;
+    width: 20px;
+    margin: 0;
+}
+
+.inputSearch {
+    padding: 0;
+    margin-left: 10px;
+    height: 40px;
 }

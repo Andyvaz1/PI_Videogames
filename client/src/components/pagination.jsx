@@ -3,41 +3,46 @@ import styles from "../styles/pagination.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setPage, nextPage, prevPage } from "../redux/actions";
 
-export function Pagination(props) {
+export function Pagination({ maximo }) {
     const dispatch = useDispatch();
-    let index = [];
     const { currentPage } = useSelector((state) => state);
-    for (let i = 1; i <= props.max; i++) {
-        index.push(
-            <li>
-                <button onClick={dispatch(setPage(i))}>{i}</button>
-            </li>
-        );
+    console.log(maximo);
+    let index = [];
+    for (let i = 1; i <= maximo; i++) {
+        index.push(i);
     }
 
+    const onCLickPrev = () => {
+        dispatch(prevPage());
+    };
+    const onCLickNext = () => {
+        dispatch(nextPage());
+    };
+    const onClickSetPage = (i) => {
+        dispatch(setPage(i));
+    };
     return (
-        <div className={styles.container}>
-            <ul>
-                <li>
-                    {
-                        (currentPage = 1 ? (
-                            <button onClick={dispatch(prevPage())}>PREV</button>
-                        ) : (
-                            <button>PREV</button>
-                        ))
-                    }
-                </li>
-                {index}
-                <li>
-                    {
-                        (currentPage = 1 ? (
-                            <button onClick={dispatch(nextPage())}>NEXT</button>
-                        ) : (
-                            <button>PREV</button>
-                        ))
-                    }
-                </li>
-            </ul>
+        <div className={styles.pagContainer}>
+            <button
+                onClick={onCLickPrev}
+                disabled={currentPage === 1 ? true : false}
+            >
+                PREV
+            </button>
+            {index?.map((i) => (
+                <button
+                    className={styles.button}
+                    onClick={() => onClickSetPage(i)}
+                >
+                    {i}
+                </button>
+            ))}
+            <button
+                onClick={() => onCLickNext()}
+                disabled={currentPage === maximo ? true : false}
+            >
+                Next
+            </button>
         </div>
     );
 }
