@@ -1,4 +1,4 @@
-import { getAllGames } from "../redux/actions";
+import { getAllGames, setPage, nextPage, prevPage } from "../redux/actions";
 import GameCard from "./gameCard";
 import { SearchBar } from "./searchBar";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,15 +7,16 @@ import styles from "../styles/home.module.css";
 import { Pagination } from "./pagination";
 
 export function Home() {
-    //Creo traigo el dispatch y la propiedad allGames del estado global
+    //Creo traigo el dispatch y la propiedad allGames del estado global ///
     const dispatch = useDispatch();
-    const { allGames } = useSelector((state) => state);
+    const { allGames, currentPage } = useSelector((state) => state);
 
     /////// Estado local para el paginado /////////////////
-    const [page, setPage] = useState(1);
-    const [perPage, setPerPage] = useState(15);
-    const max = allGames.lengthg / perPage;
 
+    const [perPage, setPerPage] = useState(15);
+    let max = allGames.lengthg / perPage;
+
+    //// Use effect para que traiga a estado global los juegos /////
     useEffect(() => {
         dispatch(getAllGames());
     }, []);
@@ -27,8 +28,8 @@ export function Home() {
                 {allGames.length > 0 ? (
                     allGames
                         ?.slice(
-                            (page - 1) * perPage,
-                            (page - 1) * perPage + perPage
+                            (currentPage - 1) * perPage,
+                            (currentPage - 1) * perPage + perPage
                         )
                         .map((game) => (
                             <div key={game.id}>
@@ -44,7 +45,7 @@ export function Home() {
                 ) : (
                     <div className={styles.loading}>LOADING</div>
                 )}
-                <Pagination />
+                <br />
             </div>
         </div>
     );

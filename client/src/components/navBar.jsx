@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/navBar.module.css";
 import homeIcon from "../styles/homeIcon2.png";
-import oracleLogo from "../styles/oraclename.png";
-import oracleLogo2 from "../styles/oracleNameVioleta.png";
 import oracleLogo3 from "../styles/go3.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllGames } from "../redux/actions";
+import { getAllGames, setPage } from "../redux/actions";
 export function NavBar() {
     const dispatch = useDispatch();
 

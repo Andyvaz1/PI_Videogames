@@ -3,9 +3,15 @@
 //El id inicial de referencia para crear un juego nuevo
 const idJuego = 0;
 
+////Variables para la acciones////
 export const GET_ALL_GAMES = "GET_ALL_GAMES";
 export const GET_GAME_DETAIL = "GET_GAME_DETAIL";
 export const CREATE_GAME = "CREATE_GAME";
+export const SET_PAGE = "SET_PAGE";
+export const NEXT_PAGE = "NEXT_PAGE";
+export const PREV_PAGE = "PREV_PAGE";
+
+/////Action Creators /////
 
 export const getAllGames = () => {
     return async function (dispatch) {
@@ -33,3 +39,22 @@ export const searchGames = (name) => {
             .catch(() => console.log("Game not found."));
     };
 };
+
+export function setPage(p) {
+    return {
+        type: SET_PAGE,
+        payload: p,
+    };
+}
+
+export function nextPage() {
+    return {
+        type: NEXT_PAGE,
+    };
+}
+
+export function prevPage() {
+    return {
+        type: PREV_PAGE,
+    };
+}
