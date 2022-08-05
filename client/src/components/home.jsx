@@ -49,6 +49,7 @@ export function Home() {
                                     id={game.id}
                                     rating={game.rating}
                                     genres={game.genres}
+                                    platforms={game.platforms}
                                 />
                             </div>
                         ))

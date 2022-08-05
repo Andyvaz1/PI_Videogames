@@ -6,6 +6,7 @@ export default function GameCard(props) {
     props.genres.map((g) => {
         genreList.push(g.name);
     });
+
     return (
         <Link className={styles.link} to={`/${props.id}`}>
             <div className={styles.container}>

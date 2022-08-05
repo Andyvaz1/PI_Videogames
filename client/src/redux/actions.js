@@ -1,7 +1,4 @@
-// import axios from "axios";
-
-//El id inicial de referencia para crear un juego nuevo
-const idJuego = 0;
+const axios = require("axios");
 
 ////Variables para la acciones////
 export const GET_ALL_GAMES = "GET_ALL_GAMES";
@@ -119,3 +116,53 @@ export function filterRatingDesc() {
         type: FILTER_RATING_DESC,
     };
 }
+
+//////////////Post Game //////////////
+
+export function createGame(payload) {
+    if (!payload.date) {
+        payload.date = Date.now();
+    }
+    return function (dispatch) {
+        return axios
+            .post("http://localhost:3001/videogames", {
+                name: payload.name,
+                description: payload.description,
+                platforms: payload.platforms,
+                rating: payload.rating,
+                genre: payload.genre,
+                releaseDate: payload.releaseDate,
+            })
+
+            .then((json) => {
+                dispatch({ type: CREATE_GAME, payload: json.data });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+}
+/*
+export function createGame(payload) {
+    return function (dispatch) {
+        return fetch(`http://localhost:3001/videogames`, {
+            method: "POST",
+            body: JSON.stringify({
+                name: payload.name,
+                description: payload.description,
+                platforms: payload.platforms,
+                rating: payload.rating,
+                image: payload.image,
+                genres: payload.genre,
+                releaseDate: payload.releaseDate,
+            }),
+            headers: {
+                "Content-type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                dispatch({ type: GET_GAME_DETAIL, payload: json });
+            });
+    };
+}*/

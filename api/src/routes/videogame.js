@@ -1,6 +1,6 @@
 const express = require("express");
 const axios = require("axios");
-const { Videogame } = require("../db.js");
+const { Videogame, Genre } = require("../db.js");
 const router = express.Router();
 
 router.use(express.json());
@@ -54,6 +54,8 @@ router.get("/", async (req, res) => {
                 };
                 resVideogame.push(obj);
             });
+            const dbVideogame = await Videogame.findAll();
+            resVideogame.concat(dbVideogame);
             const quinceResult = resVideogame.slice(0, 15);
 
             res.json(quinceResult);
@@ -74,11 +76,11 @@ router.get("/:idVideogame", async (req, res) => {
             id: apiVideogame.id,
             name: apiVideogame.name,
             background_image: apiVideogame.background_image,
-            genres: apiVideogame.genres,
+            genres: apiVideogame.genres.map((d) => d.name),
             description: apiVideogame.description_raw,
             released: apiVideogame.released,
             rating: apiVideogame.rating,
-            platforms: apiVideogame.platforms,
+            platforms: apiVideogame.platforms.map((d) => d.platform.name),
         };
 
         res.json(resVideogame);
@@ -88,7 +90,13 @@ router.get("/:idVideogame", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const { name, description, releaseDate, rating, platforms } = req.body;
+    const { name, description, genres, releaseDate, rating, platforms } =
+        req.body;
+    console.log(req.body);
+    const g = await Genre.findAll({
+        where: { name: genres },
+    });
+
     try {
         const newVideogame = await Videogame.create({
             name,
@@ -98,8 +106,9 @@ router.post("/", async (req, res) => {
             platforms,
         });
 
-        res.send(newVideogame);
+        res.send(await newVideogame.addGenres(g));
     } catch (error) {
+        console.log(error);
         res.send(error);
     }
 });
