@@ -14,8 +14,8 @@ export const GET_ALL_GENRES = "GET_ALL_GENRES";
 export const FILTER_GENRE = "FILTER_GENRE";
 export const FILTER_ALFA_AZ = "FILTER_ALFA_AZ";
 export const FILTER_ALFA_ZA = "FILTER_ALFA_ZA";
-export const FILTER_RATING_ASC = "FILTEL_RATING_ASC";
-export const FILTER_RATING_DESC = "FILTEL_RATING_DESC";
+export const FILTER_RATING_ASC = "FILTER_RATING_ASC";
+export const FILTER_RATING_DESC = "FILTER_RATING_DESC";
 export const NOT_FOUND = "NOT_FOUND";
 /////Action Creators /////
 
@@ -25,9 +25,7 @@ export const getAllGames = () => {
         return fetch("http://localhost:3001/videogame")
             .then((response) => response.json())
             .then((json) => dispatch({ type: GET_ALL_GAMES, payload: json }))
-            .catch(() =>
-                dispatch({ type: NOT_FOUND, payload: ["notFoundError"] })
-            );
+            .catch((error) => console.log(error));
     };
 };
 
@@ -51,7 +49,7 @@ export const searchGames = (name) => {
     };
 };
 
-//////Trae todos los Generos////////////////
+///////////Trae todos los generos/////////////////
 export const getAllGenres = () => {
     return async function (dispatch) {
         return fetch(`http://localhost:3001/genre`)

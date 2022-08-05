@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { searchGames, getAllGenres } from "../redux/actions";
-import { Link } from "react-router-dom";
+import { searchGames } from "../redux/actions";
 import styles from "../styles/searchBar.module.css";
 import searchIcon from "../styles/imagenes/searchIcon.png";
 import { Filters } from "./filters";
@@ -19,7 +18,7 @@ export function SearchBar() {
         e.preventDefault();
         dispatch(searchGames(content));
     }
-
+    console.log("searchbar");
     return (
         <div className={styles.container}>
             <form className="form-container" onSubmit={(e) => handleSubmit(e)}>

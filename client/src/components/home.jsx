@@ -1,10 +1,4 @@
-import {
-    getAllGames,
-    setPage,
-    nextPage,
-    prevPage,
-    getAllGenres,
-} from "../redux/actions";
+import { getAllGames, setPage, getAllGenres } from "../redux/actions";
 import GameCard from "./gameCard";
 import { SearchBar } from "./searchBar";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,21 +16,19 @@ export function Home() {
     const [perPage, setPerPage] = useState(15);
 
     //// Use effect para que traiga a estado global los juegos /////
+    //// !! PROBAR CON CURRENT PAGE COMO ESTADO LOCAL !!///////
     useEffect(() => {
         dispatch(getAllGames());
         dispatch(getAllGenres());
-        dispatch(setPage(1));
     }, []);
 
-    //useEffect(() => {
-    //   dispatch(setPage(1));
-    // }, [allGames]);
+    useEffect(() => {
+        dispatch(setPage(1));
+    }, [allGames]);
 
-    console.log(allGames.length);
     let max = Math.round(allGames.length / perPage);
 
-    console.log(max);
-    console.log(allGames);
+    console.log("home");
 
     return (
         <div className={styles.fondo1}>
@@ -45,7 +37,7 @@ export function Home() {
             <div className={styles.grid}>
                 {allGames.length > 0 ? (
                     allGames
-                        ?.slice(
+                        .slice(
                             (currentPage - 1) * perPage,
                             (currentPage - 1) * perPage + perPage
                         )

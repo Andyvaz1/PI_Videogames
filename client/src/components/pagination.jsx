@@ -6,12 +6,12 @@ import { setPage, nextPage, prevPage } from "../redux/actions";
 export function Pagination({ maximo }) {
     const dispatch = useDispatch();
     const { currentPage } = useSelector((state) => state);
-    console.log(maximo);
+
     let index = [];
     for (let i = 1; i <= maximo; i++) {
         index.push(i);
     }
-
+    console.log("Pagination");
     const onCLickPrev = () => {
         dispatch(prevPage());
     };

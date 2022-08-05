@@ -1,3 +1,8 @@
 export function CreateGame() {
-    return <div>CREAR JUEGO</div>;
+    return (
+        <div>
+            <h1>Create a Game!</h1>
+            <form></form>
+        </div>
+    );
 }

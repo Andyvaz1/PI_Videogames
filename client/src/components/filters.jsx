@@ -7,6 +7,7 @@ import {
     filterAlphaZA,
     filterRatingAsc,
     filterRatingDesc,
+    setPage,
 } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/filters.module.css";
@@ -30,6 +31,7 @@ export function Filters() {
             </option>
         );
     }
+    console.log("filter");
 
     //////Event Handelers//////////////
 
@@ -42,6 +44,7 @@ export function Filters() {
     }
 
     function handleOrderBy(e) {
+        dispatch(setPage(1));
         if (e.target.value === "A-Z") {
             dispatch(filterAlphaAZ());
         }
@@ -61,7 +64,7 @@ export function Filters() {
         <div className={styles.filtersContainer}>
             <form onChange={(e) => handleChangeGenre(e)}>
                 <label className={styles.label}>Genre:</label>
-                <select name="selectGenre">
+                <select name="selectGenre" className={styles.selectFilter}>
                     <option key="keyAll" value="All">
                         All
                     </option>
@@ -70,7 +73,7 @@ export function Filters() {
             </form>
             <form onChange={(e) => handleOrderBy(e)}>
                 <label className={styles.label}>Order by:</label>
-                <select name="orderBy">
+                <select name="orderBy" className={styles.selectFilter}>
                     <option key="alphaAsc" value="A-Z">
                         A-Z
                     </option>

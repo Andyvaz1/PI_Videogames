@@ -1,15 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "../styles/land.module.css";
 import video from "../styles/videos/video.mp4";
-import video2 from "../styles/videos/video2.mp4";
-import video3 from "../styles/videos/video3.mp4";
-import video4 from "../styles/videos/video4.mp4";
-import video5 from "../styles/videos/video5.mp4";
-import video6 from "../styles/videos/video6.mp4";
-import video7 from "../styles/videos/video7.mp4";
-import video8 from "../styles/videos/video8.mp4";
-import video9 from "../styles/videos/video9.mp4";
-import logo from "../styles/goLand.png";
+
+import logo from "../styles/imagenes/goLand.png";
 
 export function Land() {
     return (

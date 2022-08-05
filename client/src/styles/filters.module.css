@@ -11,4 +11,12 @@
 
 .label {
     margin-right: 5px;
+    margin-left: 5px;
+}
+
+.selectFilter {
+    border-radius: 5px;
+    font-size: medium;
+    background-color: #6b32c7c0;
+    color: aliceblue;
 }
