@@ -14,11 +14,22 @@ router.get("/", async (req, res) => {
     const apiGenre = arr.data.results;
 
     try {
+        res.json(apiGenre);
+    } catch (error) {
+        res.send(error);
+    }
+});
+
+/*router.get("/", async (req, res) => {
+    const arr = await axios.get(url);
+    const apiGenre = arr.data.results;
+
+    try {
         const myGenres = await Genre.bulkCreate(apiGenre);
         res.json(myGenres);
     } catch (error) {
         res.send(error);
     }
-});
+}); */
 
 module.exports = router;

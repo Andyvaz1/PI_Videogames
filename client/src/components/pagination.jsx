@@ -26,13 +26,17 @@ export function Pagination({ maximo }) {
             <button
                 onClick={onCLickPrev}
                 disabled={currentPage === 1 ? true : false}
+                className={styles.button3}
             >
                 PREV
             </button>
             {index?.map((i) => (
                 <button
-                    className={styles.button}
+                    className={
+                        currentPage === i ? styles.button1 : styles.button2
+                    }
                     onClick={() => onClickSetPage(i)}
+                    key={i}
                 >
                     {i}
                 </button>
@@ -40,6 +44,7 @@ export function Pagination({ maximo }) {
             <button
                 onClick={() => onCLickNext()}
                 disabled={currentPage === maximo ? true : false}
+                className={styles.button3}
             >
                 Next
             </button>

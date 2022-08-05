@@ -1,4 +1,10 @@
-import { getAllGames, setPage, nextPage, prevPage } from "../redux/actions";
+import {
+    getAllGames,
+    setPage,
+    nextPage,
+    prevPage,
+    getAllGenres,
+} from "../redux/actions";
 import GameCard from "./gameCard";
 import { SearchBar } from "./searchBar";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,16 +24,19 @@ export function Home() {
     //// Use effect para que traiga a estado global los juegos /////
     useEffect(() => {
         dispatch(getAllGames());
+        dispatch(getAllGenres());
+        dispatch(setPage(1));
     }, []);
 
-    useEffect(() => {
-        dispatch(setPage(1));
-    }, [allGames]);
+    //useEffect(() => {
+    //   dispatch(setPage(1));
+    // }, [allGames]);
 
     console.log(allGames.length);
     let max = Math.round(allGames.length / perPage);
 
     console.log(max);
+    console.log(allGames);
 
     return (
         <div className={styles.fondo1}>

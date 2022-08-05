@@ -15,7 +15,11 @@ export function GameDetail(props) {
     return (
         <div className={styles.fondo}>
             <h1>{gameDetail.name}</h1>
-            <img src={gameDetail.background_image} className={styles.img} />
+            <img
+                src={gameDetail.background_image}
+                className={styles.img}
+                alt="gamePhoto"
+            />
 
             <p>Description: {gameDetail.description}</p>
             <p>Release Date: {gameDetail.released}</p>

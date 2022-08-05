@@ -26,17 +26,16 @@ form {
     border-radius: var(0.7rem);
 }
 
-button:hover {
-    cursor: pointer;
-    background-color: #6c32c7;
-}
-
 .buttonSearch {
     margin-left: 4px;
     padding: 5%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+.buttonSearch:hover {
+    cursor: pointer;
+    background-color: #6c32c7;
 }
 .iconSearch {
     height: 20px;
